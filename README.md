@@ -7,6 +7,8 @@ This library intend to wait for one DOM update (frame) and is easify composable 
 It is a proper abstraction to replace the classical `setTimeout(f, 0)` hack 
 when wanting to get a CSS value after the browser repaint the DOM.
 
+[Checkout the Annotated Source Code](http://gre.github.io/qanimationframe/docs/qanimationframe.html)
+
 Usage
 ---
 
@@ -47,11 +49,6 @@ height.then(function(height){
 });
 ```
 
-Supported browsers
----
-
-All browsers are supported (including IE).
-
 Installation
 ---
 
@@ -61,11 +58,13 @@ bower install qanimationframe
 
 Also available on [NPM](https://npmjs.org/package/qanimationframe).
 
+Supported browsers
+---
+
+All browsers are supported (including IE).
+
 Tests
 ---
 
 [![SauceLabs Status](https://saucelabs.com/browser-matrix/qanimationframe.svg)](https://saucelabs.com/u/qanimationframe)
-
-
-[Checkout the Annotated Source Code](http://gre.github.io/qanimationframe/docs/qanimationframe.html)
 
