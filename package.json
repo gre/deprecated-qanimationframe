@@ -1,6 +1,6 @@
 {
   "name": "qanimationframe",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Promisified requestAnimationFrame with Q",
   "keywords": [
     "q",
@@ -10,8 +10,14 @@
     "desktop"
   ],
   "author": "Gaëtan Renaudeau <renaudeau.gaetan@gmail.com>",
+  "contributors": [
+    {
+      "name": "Paul Panserrieu",
+      "email": "paul@42loops.com"
+    }
+  ],
   "dependencies" : {
-    "q"   :  "0.9.x"
+    "q"   :  "0.9.7"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
