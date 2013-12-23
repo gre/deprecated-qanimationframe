@@ -26,14 +26,14 @@
            };
   })();
 
-  // QanimationFrame(elt: DOM.Element) => Promise[DOM.Element]
+  // QanimationFrame(f: function) => DOM.Element
   // ---
   //
-  var QanimationFrame = function (elt) {
+  var QanimationFrame = function (f) {
     var d = Q.defer();
     requestAnimationFrame(function () {
-      d.resolve(elt);
-    }, elt);
+      d.resolve(f());
+    });
     return d.promise;
   };
 

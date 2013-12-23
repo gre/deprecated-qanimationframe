@@ -14,12 +14,13 @@ test("check the API needed for the test engine", function() {
 });
 
 asyncTest("changing display to none and accessing the style again", 1, function() {
-  Q.fcall(createDivInBody, "Hello world!")
-  .then(function (elt) {
-    elt.style.display = "none";
-    return elt;
+  var el = createDivInBody("Hello world!");
+  el.style.display = "block";
+
+  QanimationFrame(function () {
+    el.style.display = "none";
+    return el;
   })
-  .then(QanimationFrame)
   .then(function (elt) {
     equal(elt.style.display, "none", "elt is display:none");
   })
@@ -27,25 +28,18 @@ asyncTest("changing display to none and accessing the style again", 1, function(
   .fin(start);
 });
 
-asyncTest("Checking the height of a new created element", 2, function() {
-  var height = 0;
-  Q.fcall(createDivInBody, "Hello world!<br/>How are you today?")
-   .then(QanimationFrame)
-   .then(function (elt) {
-     height = elt.offsetHeight;
-     ok(height > 0, "offsetHeight is >0");
-     return elt;
+asyncTest("Checking the element height change after adding some content", 1, function() {
+  var el = createDivInBody("Hello world!<br/>How are you today?");
+  var height = el.offsetHeight;
+
+  QanimationFrame(function() {
+     el.innerHTML += "<br/><p>One more text</p>";
+     return el;
    })
-   .then(function(elt) {
-     elt.innerHTML += "<br/><p>One more text</p>";
-     return elt;
-   })
-   .then(QanimationFrame)
    .then(function (elt) {
-     ok(elt.offsetHeight>height, "offsetHeight has increased.");
+     ok(elt.offsetHeight > height, "offsetHeight has increased.");
      return elt;
    })
    .fail(checkNotError)
    .fin(start);
 });
-
