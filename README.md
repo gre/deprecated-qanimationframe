@@ -2,6 +2,8 @@ QanimationFrame
 ===
 A simple Promise wrapper for `requestAnimationFrame` based on [Q](https://github.com/kriskowal/q).
 
+This library intends to wait for one DOM update (frame) for computing some code requiring a DOM frame update.
+
 [Checkout the Annotated Source Code](http://gre.github.io/qanimationframe/docs/qanimationframe.html)
 
 Usage
@@ -15,13 +17,14 @@ Usage
 
 ```javascript
 var elt = document.createElement("div");
+elt.innerHTML = "Hello world";
 
-QanimationFrame(function () {
-  elt.innerHTML = "Hello world";
-  return elt;
-}).then(function (elt) {
-  // here, the previous step has been drawn.
-  console.log("height="+elt.offsetHeight);
+var heightComputation = QanimationFrame(function () {
+  return elt.offsetHeight;
+});
+
+heightComputation.then(function (height) {
+  console.log("height="+height);
 });
 ```
 
