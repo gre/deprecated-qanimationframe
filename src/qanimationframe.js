@@ -32,7 +32,11 @@
   var QanimationFrame = function (f) {
     var d = Q.defer();
     requestAnimationFrame(function () {
-      d.resolve(f());
+      try {
+        d.resolve(f());
+      } catch (e) {
+        d.reject(e);
+      }
     });
     return d.promise;
   };
