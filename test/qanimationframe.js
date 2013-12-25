@@ -43,3 +43,17 @@ asyncTest("Checking the element height change after adding some content", 1, fun
    .fail(checkNotError)
    .fin(start);
 });
+
+asyncTest("Checking if exceptions thrown are catched and result of a failure promise", 2, function() {
+
+  QanimationFrame(function() {
+      throw "FOO";
+   })
+   .then(function () {
+       ok(false, "It should not be a success.");
+   }, function (e) {
+       ok(true, "Exception thrown transformed into a failure promise.");
+       equal(e, "FOO", "Exception is the failure value.");
+   })
+   .fin(start);
+});
