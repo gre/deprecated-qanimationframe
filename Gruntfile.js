@@ -139,7 +139,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-saucelabs');
 
   grunt.registerTask('default', ['jshint', 'uglify', 'docco']);
-  grunt.registerTask('test-local', ['connect', "watch"]);
-  grunt.registerTask('test', ['connect', "saucelabs-qunit"]);
+  grunt.registerTask('test', ['connect', "watch"]);
+  grunt.registerTask('test-sauce', ['connect', "saucelabs-qunit"]);
 
 };

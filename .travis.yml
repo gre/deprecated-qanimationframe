@@ -1,0 +1,8 @@
+language: node_js
+env:
+  global:
+    - secure: "CbLA+etBVs/FIC9D62bMAXO3rqH4Qu/3WTEhsIUqLnZEBzuh4dvIWJlvz6ieLb4YPqBktwo9djZVnRe3OE40Z17ewNBIG8NdAi7N6bnM5aZGkOi3sF69tutsJL8ZoKNzck73aN6/4Fh82K5LLDMASlOav39QUN13tRxV4v7mEEs="
+    - secure: "YeVGOIAKweFwfn+wqnui4+thQiz8Pw8yZLTccfyJpc/co9qI5ITNYOYKxHo6YyM5il82yqAUQMrPeKNnv35ybM/G0n4dj8S6OvhhRcn/+FEiUUT/iMPkbrCOcE39l3nlYWIHOF5iwczCCFxi0hNkmRgtfrKV+wRgF4FqqcgUqeQ="
+node_js: 
+  - 0.1
+script: grunt test-sauce;
