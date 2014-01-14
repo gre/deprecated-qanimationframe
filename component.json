@@ -1,9 +1,9 @@
 {
     "name" : "qanimationframe",
-    "version" : "2.0.0",
+    "version" : "2.1.1",
     "readme" : "README.md",
-    "main" : "./build/qajax.min.js",
+    "main" : "./build/qanimationframe.min.js",
     "dependencies" : {
-        "q" : "0.9.7"
+        "q" : "1.0.0"
     }
 }

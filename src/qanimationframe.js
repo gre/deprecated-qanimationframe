@@ -26,7 +26,7 @@
            };
   })();
 
-  // QanimationFrame(f: function) => DOM.Element
+  // QanimationFrame(f: function) => promise containing the return value of f
   // ---
   //
   var QanimationFrame = function (f) {

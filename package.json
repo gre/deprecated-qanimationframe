@@ -1,6 +1,6 @@
 {
   "name": "qanimationframe",
-  "version": "2.0.1",
+  "version": "2.1.1",
   "description": "Promisified requestAnimationFrame with Q",
   "keywords": [
     "q",
@@ -17,7 +17,7 @@
     }
   ],
   "dependencies" : {
-    "q"   :  "0.9.7"
+    "q"   :  "1.0.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -29,6 +29,10 @@
     "connect": "~2.8.3",
     "grunt-saucelabs" : "~4.0.2",
     "grunt-contrib-connect" : "~0.1.2"
+  },
+  "scripts": {
+    "postinstall": "ln -s ../../node_modules/q/q.js ./test/vendor/q.js",
+    "preinstall": "rm -f ./test/vendor/q.js"
   },
   "main": "src/qanimationframe.js",
   "license": "BSD",

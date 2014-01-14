@@ -2,14 +2,14 @@ QanimationFrame
 ===
 A simple Promise wrapper for `requestAnimationFrame` based on [Q](https://github.com/kriskowal/q).
 
-This library intends to wait for one DOM update (frame) for computing some code requiring a DOM frame update.
+This library intends to promisify requestAnimationFrame.
 
 [Checkout the Annotated Source Code](http://gre.github.io/qanimationframe/docs/qanimationframe.html)
 
 Usage
 ---
 
-`QanimationFrame` is a *function* which takes a *function* and returns a *DOM Element* (after one frame).
+`QanimationFrame` is a *function* which takes a *function* and returns a *promise* containing it's return value (after one frame).
 
 **QanimationFrame(f: function) => DOM.Element**
 
@@ -18,20 +18,25 @@ Usage
 ```javascript
 var elt = document.createElement("div");
 elt.innerHTML = "Hello world";
+window.document.body.appendChild(elt);
 
-var heightComputation = QanimationFrame(function () {
-  return elt.offsetHeight;
+var doSomething = QanimationFrame(function () {
+  elt.style.width = '50px';
+  elt.style.height = '50px';
+  return elt;
 });
 
-heightComputation.then(function (height) {
-  console.log("height="+height);
+doSomething.then(function (elt) {
+  // style changes are rendered
+  var boundingBox = elt.getBoundingClientRect(elt);
+  console.log(boundingBox.right - boundingBox.left);
 });
 ```
 
 Installation
 ---
 
-vai [npm](https://npmjs.org/package/qanimationframe).
+via [npm](https://npmjs.org/package/qanimationframe).
 
 ```sh
 npm install qanimationframe
