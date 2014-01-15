@@ -28,6 +28,22 @@ asyncTest("changing display to none and accessing the style again", 1, function(
   .fin(start);
 });
 
+asyncTest("changing height from 50px to 100px and checking the it with getClientBoundingRect()", 1, function() {
+  var el = createDivInBody("Hello world!");
+  el.style.height = "50px";
+
+  QanimationFrame(function () {
+    el.style.height = "100px";
+    return el;
+  })
+  .then(function (elt) {
+    var boundingBox = elt.getBoundingClientRect(elt);
+    equal(boundingBox.bottom - boundingBox.top, 100, "elt is height:100px");
+  })
+  .fail(checkNotError)
+  .fin(start);
+});
+
 asyncTest("Checking the element height change after adding some content", 1, function() {
   var el = createDivInBody("Hello world!<br/>How are you today?");
   var height = el.offsetHeight;
