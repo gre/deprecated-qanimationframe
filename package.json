@@ -1,6 +1,6 @@
 {
   "name": "qanimationframe",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Promisified requestAnimationFrame with Q",
   "keywords": [
     "q",
