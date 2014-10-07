@@ -17,7 +17,7 @@
     }
   ],
   "dependencies" : {
-    "q"   :  "1.0.0"
+    "q"   :  "1.0.x"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
