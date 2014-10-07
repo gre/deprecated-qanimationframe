@@ -1,3 +1,5 @@
+**DEPRECATED** in favor of `raf`.
+
 QanimationFrame
 ===
 A simple Promise wrapper for `requestAnimationFrame` based on [Q](https://github.com/kriskowal/q).
