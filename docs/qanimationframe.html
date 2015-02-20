@@ -34,13 +34,13 @@
  * Qanimationframe.js - Promisified requestAnimationFrame with Q
  */</span>
 <span class="hljs-comment">/*jslint newcap: true */</span>
-(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(definition)</span> {</span>
+(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(definition)</span> </span>{
     <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> exports === <span class="hljs-string">"object"</span>) {
-        module.exports = definition();
+        <span class="hljs-built_in">module</span>.exports = definition();
     } <span class="hljs-keyword">else</span> {
-        window.QanimationFrame = definition();
+        <span class="hljs-built_in">window</span>.QanimationFrame = definition();
     }
-})(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+})(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
 <span class="hljs-pi">  "use strict"</span>;</pre></div></div>
             
         </li>
@@ -56,7 +56,7 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">var</span> Q = window.Q || <span class="hljs-built_in">require</span>(<span class="hljs-string">"q"</span>);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">var</span> Q = <span class="hljs-built_in">window</span>.Q || <span class="hljs-built_in">require</span>(<span class="hljs-string">"q"</span>);</pre></div></div>
             
         </li>
         
@@ -71,14 +71,14 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">var</span> requestAnimationFrame = (<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span>
-    <span class="hljs-keyword">return</span> window.requestAnimationFrame       ||
-           window.oRequestAnimationFrame      ||
-           window.msRequestAnimationFrame     ||
-           window.mozRequestAnimationFrame    ||
-           window.webkitRequestAnimationFrame ||
-           <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(callback)</span> {</span>
-             window.setTimeout(callback, <span class="hljs-number">1000</span> / <span class="hljs-number">60</span>);
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">var</span> requestAnimationFrame = (<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">window</span>.requestAnimationFrame       ||
+           <span class="hljs-built_in">window</span>.oRequestAnimationFrame      ||
+           <span class="hljs-built_in">window</span>.msRequestAnimationFrame     ||
+           <span class="hljs-built_in">window</span>.mozRequestAnimationFrame    ||
+           <span class="hljs-built_in">window</span>.webkitRequestAnimationFrame ||
+           <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(callback)</span> </span>{
+             <span class="hljs-built_in">window</span>.setTimeout(callback, <span class="hljs-number">1000</span> / <span class="hljs-number">60</span>);
            };
   })();</pre></div></div>
             
@@ -107,9 +107,9 @@
               
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">var</span> QanimationFrame = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(f)</span> {</span>
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">var</span> QanimationFrame = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(f)</span> </span>{
     <span class="hljs-keyword">var</span> d = Q.defer();
-    requestAnimationFrame(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+    requestAnimationFrame(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
       <span class="hljs-keyword">try</span> {
         d.resolve(f());
       } <span class="hljs-keyword">catch</span> (e) {
