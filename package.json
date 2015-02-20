@@ -1,6 +1,6 @@
 {
   "name": "qanimationframe",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "description": "Promisified requestAnimationFrame with Q",
   "keywords": [
     "q",
@@ -17,7 +17,7 @@
     }
   ],
   "dependencies": {
-    "q": "1.0.x"
+    "q": "1.1.x"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
